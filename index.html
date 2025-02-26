@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ansh Logistic and Cargo</title>
+    <title>Ansh Logistic - Home</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navbar Section -->
+
+    <!-- Navigation -->
     <header>
-        <h1>Ansh Logistic and Cargo</h1>
+        <div class="logo">Ansh Logistic & Cargo Pvt Ltd</div>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -20,39 +21,37 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
+
+<!-- Tracking Section (Separate) -->
+<section class="tracking-section">
+    <h2>Track Your Shipment</h2>
+    <form id="tracking-form">
+        <input type="text" id="tracking-number" placeholder="Enter Docket Number" required>
+        <button type="submit">Track</button>
+    </form>
+</section>
+
+    <!-- Hero Section (Full Page) -->
     <section class="hero">
-        <h2>Your Reliable Logistic Partner</h2>
-        <p>Fast & Secure Cargo Transport Services</p>
-        <a href="#" class="btn">Get a Quote</a>
+        <div class="hero-content">
+            <h1>Your Reliable Logistic Partner</h1>
+            <p>Fast & Secure Cargo Transport Services</p>
+            <a href="contact.html" class="btn">Get a Quote</a>
+        </div>
     </section>
 
-    <!-- About Us -->
-    <section class="about">
-        <h2>About Us</h2>
-        <p>We provide top-notch logistics and cargo solutions across the globe.</p>
-    </section>
+    
 
-    <!-- Services -->
-    <section class="services">
-        <h2>Our Services</h2>
-        <ul>
-            <li>🚛 Freight Transport</li>
-            <li>📦 Warehousing</li>
-            <li>✈️ Air Cargo</li>
-            <li>🌍 International Shipping</li>
-        </ul>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact">
-        <h2>Contact Us</h2>
-        <p>Email: contact@anshlogistic.com</p>
-        <p>Phone: +91 9876543210</p>
-    </section>
-
-    <footer>
-        <p>© 2025 Ansh Logistic and Cargo Pvt Ltd</p>
-    </footer>
-</body>
-</html>
+    <!-- Services Preview -->
+    <section class="services-preview">
+        <h2>Our Core Services</h2>
+        <div class="service-container">
+            <div class="service-box">
+                <h3>🚛 Freight Transport</h3>
+                <p>Safe and fast delivery across the country.</p>
+            </div>
+            <div class="service-box">
+                <h3>📦 Warehousing</h3>
+                <p>Secure storage for your goods.</p>
+            </div>
+          
