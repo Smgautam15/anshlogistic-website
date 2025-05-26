@@ -1,424 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ansh Logistic - Track Your Shipment</title>
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <!-- Font Awesome for Icons -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      rel="stylesheet"
-    />
-     <link rel="icon" type="image/png" href="Logo.jpeg">
-     <!-- for the toast alert -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ansh Logistic - Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-
-    <!-- FontAwesome for Icons -->
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-
-  <header>
-  <!-- Top Bar -->
-  <div class="top-bar">
-    <div class="container d-flex justify-content-between">
-      <span>
-        <i class="fas fa-phone"></i> +91-9220907402
-        <span class="separator"></span>
-        <i class="fas fa-envelope"></i> info@anshlogistic.com 
-      </span>
+    <!-- Navigation -->
+    <header>
+        <div class="logo">
+        <img src="Logo.jpeg" alt="Ansh Logistic Logo">
     </div>
-  </div>
+        <div class="logo">Ansh Logistic & Cargo Pvt Ltd</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">
-        <img
-          src="Logo.jpeg"
-          alt="Ansh Logistic Logo"
-          width="40"
-          height="40"
-          class="me-2"
-        />
-        Ansh Logistic & Cargo Pvt. Ltd.
-      </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link active" href="http://103.13.97.213/Ansh">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="services.html">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
-        </ul>
-      </div>
+    <!-- Tracking Section -->
+    <section class="tracking-section">
+        <h2>Track Your Shipment</h2>
+        <form id="tracking-form">
+            <input type="text" id="tracking-number" placeholder="Enter Docket Number" required>
+            <button type="submit">Track</button>
+        </form>
+    </section>
+<!-- Freight Rate Calculator -->
+ <section class="rate-calculator">
+    <h2>Calculate Shipping Rate</h2>
+    <form id="rate-form">
+        <input type="text" id="pickup" placeholder="Enter Pickup Pincode" required>
+        <input type="text" id="destination" placeholder="Enter Destination Pincode" required>
+        <input type="number" id="weight" placeholder="Enter Weight (kg)" required>
+        <button type="submit">Calculate</button>
+    </form>
+    <p id="rate-result"></p>
+</section> 
+
+<!-- CSS for Rate Calculator -->
+<style>
+.rate-calculator {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.rate-calculator input, .rate-calculator button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 80%;
+    max-width: 300px;
+}
+
+.rate-calculator button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+</style> 
+
+    <!-- Background Slideshow -->
+    <div class="slideshow">
+        <div class="slide" style="background-image: url('slide1.jpg');"></div>
+        <div class="slide" style="background-image: url('slide2.jpg');"></div>
+        <div class="slide" style="background-image: url('slide3.jpg');"></div>
     </div>
-  </nav>
-</header>
-    
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="hero-overlay">
-        <h1 class="display-4 fw-bold">
-          Reliable logistics solutions for <br />seamless cargo transportation.
-        </h1>
-        <!-- <p class="text-white fw-bold">
-          Fast, secure, and efficient freight services across the globe.
-        </p> -->
-        <button
-          class="btn btn-warning btn-lg"
-          data-bs-toggle="modal"
-          data-bs-target="#getQuoteModal"
-        >
-          Get a Quote
-        </button>
-        <button
-          class="btn btn-info btn-lg"
-          data-bs-toggle="modal"
-          data-bs-target="#trackShipmentModal"
-        >
-          Track Shipment
-        </button>
-      </div>
+    <!-- Hero Section (Full Page) -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Your Reliable Logistic Partner</h1>
+            <p>Fast & Secure Cargo Transport Services</p>
+            <a href="contact.html" class="btn">Get a Quote</a>
+        </div>
     </section>
 
-    <!-- Track Shipment Modal -->
-    <div
-      class="modal fade"
-      id="trackShipmentModal"
-      tabindex="-1"
-      aria-labelledby="trackShipmentModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="trackShipmentModalLabel">
-              Track Your Shipment
-            </h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <form id="tracking-form">
-              <label for="tracking-number" class="form-label"
-                >Enter Tracking Number</label
-              >
-              <input
-                type="text"
-                id="tracking-number"
-                class="form-control mb-3"
-                placeholder="Tracking Number"
-                required
-              />
-              <button type="submit" class="btn btn-success w-100">Track</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
-<!-- Get a Quote Modal -->
-<div
-  class="modal fade"
-  id="getQuoteModal"
-  tabindex="-1"
-  aria-labelledby="getQuoteModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="getQuoteModalLabel">Request a Quote</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">
-        <form id="quote-form">
-          <label for="q-name" class="form-label">Your Name</label>
-          <input
-            type="text"
-            id="q-name"
-            name="name"
-            class="form-control mb-3"
-            placeholder="Full Name"
-            required
-          />
-
-          <label for="q-email" class="form-label">Your Email</label>
-          <input
-            type="email"
-            id="q-email"
-            name="email"
-            class="form-control mb-3"
-            placeholder="Email Address"
-            required
-          />
-
-          <label for="q-shipment-details" class="form-label"
-            >Shipment Details</label
-          >
-          <textarea
-            id="q-shipment-details"
-            name="message"
-            class="form-control mb-3"
-            rows="3"
-            placeholder="Enter details..."
-            required
-          ></textarea>
-
-          <button type="submit" class="btn btn-primary w-100">
-            Submit Request
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-    <section class="container my-5">
-      <h2 class="text-center mb-4">
-        <span class="text-danger">What We Offer</span> That Drive Progress
-      </h2>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="service-card">
-            <img src="images/lastmiledelivery.jpg" alt="Last Mile Delivery" />
-
-            <div class="service-overlay">
-              <div class="service-title">Last Mile Delivery</div>
-              <p class="service-description">
-                Swift and secure delivery ensuring goods reach their final
-                destination on time.
-              </p>
+    <!-- Services Preview -->
+    <section class="services-preview">
+        <h2>Our Core Services</h2>
+        <div class="service-container">
+            <div class="service-box">
+                <h3>🚛 Freight Transport</h3>
+                <p>Safe and fast delivery across the country.</p>
             </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-card">
-            <img src="images/mobiltySolution.jpg" alt="Mobility Solutions" />
-            <div class="service-overlay">
-              <div class="service-title">Mobility Solutions</div>
-              <p class="service-description">
-                Innovative and sustainable transport solutions for urban and
-                long-haul deliveries.
-              </p>
+            <div class="service-box">
+                <h3>📦 Warehousing</h3>
+                <p>Secure storage for your goods.</p>
             </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-card">
-            <img src="images/warehouseImage.jpg" alt="Contract Logistics" />
-            <div class="service-overlay">
-              <div class="service-title">Contract Logistics</div>
-              <p class="service-description">
-                Customized supply chain solutions for efficient inventory
-                management and distribution.
-              </p>
+            <div class="service-box">
+                <h3>✈️ Air Cargo</h3>
+                <p>Quick air cargo transport for urgent shipments.</p>
             </div>
-          </div>
         </div>
-        <div class="col-md-4">
-          <div class="service-card">
-            <img
-              src="images/cross-border-logistics.jpg"
-              alt="Cross Border Logistics"
-            />
-            <div class="service-overlay">
-              <div class="service-title">Cross Border Logistics</div>
-              <p class="service-description">
-                Seamless international shipping solutions for hassle-free global
-                trade.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-card">
-            <img src="images/b2bExpressLogistics.webp" alt="B2B Express" />
-            <div class="service-overlay">
-              <div class="service-title">B2B Express</div>
-              <p class="service-description">
-                Fast and reliable bulk delivery services tailored for
-                businesses.
-              </p>
-            </div>
-          </div>
-        </div>
-         <div class="col-md-4">
-      <div class="service-card">
-        <img src="images/E-commerce Fulfillment.webp" alt="E-commerce Fulfillment" />
-        <div class="service-overlay">
-          <div class="service-title">E-commerce Fulfillment</div>
-          <p class="service-description">
-            Streamlined order processing and inventory management for
-            online businesses, ensuring quick and accurate deliveries.
-          </p>
-        </div>
-       </div>
-      </div>
-    </div>
-      </div>
-  </section>
+        <a href="services.html" class="btn">View All Services</a>
+    </section>
+<!-- WhatsApp Chat Button -->
+<a href="https://wa.me/919716022267" class="whatsapp-float" target="_blank">
+    <img src="WhatsApp.svg.webp" alt="Chat with Us">
+</a>
 
+<!-- WhatsApp Button CSS -->
+<style>
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
 
-    <section class="py-5 bg-light">
-  <div class="container">
-    <h2 class="text-center mb-5 fw-bold">
-      <span class="text-danger">Our Core Services</span> That Drive Business Growth
-    </h2>
-    <div class="row">
-      <div class="col-md-4">
-        <div class="service-card">
-          <div class="icon-box">
-            <i class="fas fa-truck fa-3x"></i>
-          </div>
-          <h4>Road Freight</h4>
-          <p>
-            Reliable & cost-effective road transport across India with real-time tracking.
-          </p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="service-card">
-          <div class="icon-box">
-            <i class="fas fa-ship fa-3x"></i>
-          </div>
-          <h4>Sea Freight</h4>
-          <p>
-            Global shipping solutions ensuring safe & efficient cargo movement.
-          </p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="service-card">
-          <div class="icon-box">
-            <i class="fas fa-plane fa-3x"></i>
-          </div>
-          <h4>Air Freight</h4>
-          <p>
-            Ultra-fast air cargo services for time-sensitive shipments worldwide.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+.whatsapp-float img {
+    width: 40px;
+    height: 40px;
+}
+</style>
 
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Ansh Logistic and Cargo Pvt Ltd</p>
+    </footer>
 
-
-    <!-- WhatsApp Chat Button -->
-    <a href="https://wa.me/919716022267" class="whatsapp-float" target="_blank">
-      <i class="fab fa-whatsapp"></i>
-    </a>
-
-
-<footer class="footer">
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-logo">
-        <h3>Ansh Logistic & Cargo Pvt. Ltd.</h3>
-        <p>Reliable logistics solutions for <br />seamless cargo transportation.</p>
-      </div>
-
-      <div class="footer-links">
-        <h3>Quick Links</h3>
-        <ul>
-          <li><a href="index.html">🏠 Home</a></li>
-          <li><a href="about.html">📌 About Us</a></li>
-          <li><a href="services.html">🚛 Services</a></li>
-          <li><a href="contact.html">📞 Contact</a></li>
-        </ul>
-      </div>
-
-      <!-- <div class="footer-services">
-        <h3>Our Services</h3>
-        <ul>
-          <li><a href="#">📦 Freight Forwarding</a></li>
-          <li><a href="#">🚚 Road Transport</a></li>
-          <li><a href="#">✈️ Air Cargo</a></li>
-          <li><a href="#">🚢 Sea Shipping</a></li>
-        </ul>
-      </div> -->
-
-      <div class="footer-contact">
-        <h3>Contact Us</h3>
-        <p>📍 Location: Shop No.1,<br> Saluja Complex,Neelam Chowk,<br>NEAR TCS SHOWROOM,<br> NIT-Faridabad-121001</p>
-        <p>📞 Phone: +91 9220907402</p>
-        <p>📧 Email: info@anshlogistic.com</p>
-      </div>
-    </div>
-
-    <div class="footer-newsletter">
-      <h3>📩 Subscribe to Our Newsletter</h3>
-      <form>
-        <input type="email" placeholder="Enter your email" required />
-        <button type="submit">Subscribe</button>
-      </form>
-    </div>
-
-    <div class="footer-bottom">
-      <div class="social-links">
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-      </div>
-     <p>© <span id="year"></span> Ansh Logistic. All rights reserved.</p>
-
-
-    </div>
-  </div>
-</footer>
-
-
-
-
-    <!-- Bootstrap JS and Dependencies -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
-  </body>
+
+</body>
 </html>

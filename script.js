@@ -1,89 +1,29 @@
-document.addEventListener("DOMContentLoaded", function () {
-  emailjs.init("7shupHj5Z9znyxR8u"); // Replace with your EmailJS User ID
-
-  function sendEmail(formId, serviceId, templateId) {
-    const form = document.getElementById(formId);
-    if (!form) return;
-
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-
-      emailjs.sendForm(serviceId, templateId, this).then(
-        function (response) {
-          Toastify({
-            text: "Message sent successfully!",
-            duration: 3000, // Toast disappears after 3 seconds
-            close: true,
-            gravity: "top", // Position: "top" or "bottom"
-            position: "right", // Position: "left", "center", "right"
-            backgroundColor: "green",
-          }).showToast();
-
-          form.reset();
-
-          // Close modal if form is inside a modal
-          const modalElement = bootstrap.Modal.getInstance(
-            document.getElementById("getQuoteModal")
-          );
-          if (modalElement) modalElement.hide();
-        },
-        function (error) {
-          Toastify({
-            text: "Failed to send message. Please try again.",
-            duration: 3000,
-            close: true,
-            gravity: "top",
-            position: "right",
-            backgroundColor: "red",
-          }).showToast();
-        }
-      );
-    });
-  }
-
-  // Contact Us Form
-  sendEmail("contact-form", "service_xfkp57g", "template_z23cdq9");
-
-  // Get Quote Form (Modal)
-  sendEmail("quote-form", "service_xfkp57g", "template_z23cdq9");
-});
-
-// script for copyright-year
-document.getElementById("year").textContent = new Date().getFullYear();
-
-document
-  .getElementById("tracking-form")
-  .addEventListener("submit", function (event) {
+document.getElementById("tracking-form").addEventListener("submit", function(event) {
     event.preventDefault(); // Prevent form from submitting
 
     var docketNumber = document.getElementById("tracking-number").value;
 
     if (docketNumber) {
-      var trackingURL =
-        "https://yourtrackingwebsite.com/track?docket=" + docketNumber;
-      window.location.href = trackingURL;
+        var trackingURL = "https://yourtrackingwebsite.com/track?docket=" + docketNumber;
+        window.location.href = trackingURL;
     } else {
-      alert("Please enter a valid docket number!");
+        alert("Please enter a valid docket number!");
     }
-  });
-document
-  .getElementById("rate-form")
-  .addEventListener("submit", function (event) {
+});
+document.getElementById("rate-form").addEventListener("submit", function(event) {
     event.preventDefault();
-
+    
     let weight = parseFloat(document.getElementById("weight").value);
     let baseRate = 150; // Base price
     let ratePerKg = 17; // Rate per KG
-
+    
     if (weight > 0) {
-      let estimatedCost = baseRate + weight * ratePerKg;
-      document.getElementById("rate-result").innerText =
-        "Estimated Cost: ₹" + estimatedCost;
+        let estimatedCost = baseRate + (weight * ratePerKg);
+        document.getElementById("rate-result").innerText = "Estimated Cost: ₹" + estimatedCost;
     } else {
-      document.getElementById("rate-result").innerText =
-        "Please enter a valid weight.";
+        document.getElementById("rate-result").innerText = "Please enter a valid weight.";
     }
-  });
+});
 // document.getElementById("rate-form").addEventListener("submit", function (event) {
 //     event.preventDefault();
 
@@ -110,7 +50,7 @@ document
 
 //                 let estimatedCost = baseRate + (distance * ratePerKm) + (weight * ratePerKg);
 
-//                 document.getElementById("rate-result").innerText =
+//                 document.getElementById("rate-result").innerText = 
 //                     `Estimated Cost: ₹${estimatedCost.toFixed(2)} (Distance: ${distance.toFixed(2)} km)`;
 //             } else {
 //                 document.getElementById("rate-result").innerText = "Invalid Pincode. Please enter correct details.";
